@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/videoItem"
+    android:layout_margin="2dp"
+    android:background="@drawable/shape">
+
+    <ImageView
+
+        android:id="@+id/videoThumb"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="6dp"
+        android:padding="5dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_toRightOf="@+id/videoThumb"
+        android:maxLines="3"
+        android:gravity="bottom"
+        android:hint="Title"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/descriptionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleView"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="6dp"
+        android:layout_toRightOf="@+id/videoThumb"
+        android:gravity="top"
+        android:hint="Description Not Available..."
+        android:maxLines="4"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/like"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/descriptionView"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginLeft="12dp"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:layout_marginEnd="6dp"-->
+<!--        android:layout_marginRight="1dp"-->
+<!--        android:layout_marginBottom="6dp"-->
+<!--        android:layout_toRightOf="@+id/videoThumb"-->
+<!--        android:gravity="top"-->
+<!--        android:text="Likes" />-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="18dp"-->
+<!--        android:layout_height="15dp"-->
+<!--        android:layout_alignTop="@+id/like"-->
+<!--        android:layout_alignEnd="@+id/like"-->
+<!--        android:layout_alignBottom="@+id/like"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:background="@drawable/ic_baseline_thumb_up_24" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/descriptionView"-->
+<!--        android:layout_marginStart="6dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:layout_marginEnd="6dp"-->
+<!--        android:layout_marginRight="1dp"-->
+<!--        android:layout_marginBottom="6dp"-->
+<!--        android:layout_toRightOf="@+id/like"-->
+<!--        android:gravity="top"-->
+<!--        android:hint="Views" />-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="18dp"-->
+<!--        android:layout_height="15dp"-->
+<!--        android:layout_alignTop="@+id/view"-->
+<!--        android:layout_alignEnd="@+id/view"-->
+<!--        android:layout_alignBottom="@+id/view"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:background="@drawable/ic_baseline_remove_red_eye_24" />-->
+
+</RelativeLayout>
