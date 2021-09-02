@@ -17,7 +17,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
 
-class MainActivity : AppCompatActivity(),ItemClicked{
+class MainActivity : AppCompatActivity(),ItemClicked {
 
     private lateinit var mAdapter: VideoAdapter
 
@@ -25,21 +25,24 @@ class MainActivity : AppCompatActivity(),ItemClicked{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        val Next: Button = findViewById(R.id.NextBtn)
+//        val Previous: Button = findViewById(R.id.previousBtn)
+
         val search: Button = findViewById(R.id.search)
         search.setOnClickListener(View.OnClickListener {
             recyclerView.layoutManager = LinearLayoutManager(this)
-            fetchVideoData()
+            fetchVideoData("")
             mAdapter = VideoAdapter(this)
             recyclerView.adapter = mAdapter
         })
+
     }
 
-    private fun fetchVideoData() {
+    private fun fetchVideoData(token: String) {
 
         val key = "AIzaSyADAHGbNfdtv4AQQ3iSMNS7fYhvb5R6w_4"
         val userInput: EditText = findViewById(R.id.search_vid)
         val q = userInput.text.toString()
-        val token: String = ""
         val url1 = "https://www.googleapis.com/youtube/v3/search?part=snippet&pageToken=$token&maxResults=50&q=$q&type=video&key=$key"
 
         val jsonObjectRequest1 = JsonObjectRequest(Request.Method.GET, url1, null,
@@ -49,12 +52,13 @@ class MainActivity : AppCompatActivity(),ItemClicked{
                     val jsonObj = JSONObject(stringResponse)
                     val videoArray = ArrayList<Video>()
 
-                    if (response.has("nextPageToken") && !response.isNull("prevPageToken") ){
+                    if (response.has("nextPageToken") && !response.isNull("prevPageToken")) {
                         jsonObj.getString("nextPageToken")
                         jsonObj.getString("prevPageToken")
                     }
+
                     val jsonArray: JSONArray = jsonObj.getJSONArray("items")
-                    for (i in 0 until jsonArray.length()){
+                    for (i in 0 until jsonArray.length()) {
                         val idjsonObject = jsonArray.getJSONObject(i).getString("id")
                         val vididjsonObj = JSONObject(idjsonObject)
 
@@ -74,7 +78,7 @@ class MainActivity : AppCompatActivity(),ItemClicked{
                         videoArray.add(data)
                     }
                     mAdapter.updateNews(videoArray)
-                }catch(e:Exception){
+                } catch (e: Exception) {
                     Log.d(TAG, "fetchData: Error $e")
                 }
             },
@@ -84,6 +88,7 @@ class MainActivity : AppCompatActivity(),ItemClicked{
         )
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest1)
     }
+
 
     override fun onItemClicked(item: Video) {
 

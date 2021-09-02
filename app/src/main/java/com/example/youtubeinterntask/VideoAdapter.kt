@@ -1,5 +1,6 @@
 package com.example.youtubeinterntask
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,7 @@ class VideoAdapter(private val listener: ItemClicked) : RecyclerView.Adapter<Vie
         return items.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateNews(updatedNews: ArrayList<Video>){
         items.clear()
         items.addAll(updatedNews)
